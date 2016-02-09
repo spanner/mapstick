@@ -67,7 +67,7 @@ module.exports = function(grunt) {
         src: 'Gruntfile.js'
       },
       files: {
-        src: ['backbone-mapstick.js']
+        src: ['backbone.mapstick.js']
       }
     },
     qunit: {

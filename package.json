@@ -1,17 +1,17 @@
 {
-  "name": "backbone-mapstick",
-  "version": "0.2.0",
+  "name": "backbone.mapstick",
+  "version": "0.2.2",
   "title": "MapStick",
   "company": "Spanner Ltd",
   "author": {
-    "name": "Mike McIver",
-    "email": "mike@spanner.org"
+    "name": "William Ross",
+    "email": "will@spanner.org"
   },
   "private": true,
   "contributors": [
     {
-      "name": "William Ross",
-      "email": "will@spanner.org"
+      "name": "Mike McIver",
+      "email": "1104mike@gmail.com"
     }
   ],
   "devDependencies": {
@@ -24,10 +24,10 @@
     "grunt-contrib-uglify": "~0.5.0",
     "grunt-contrib-watch": "~0.6.1"
   },
-  "main": "backbone-mapstick.js",
+  "main": "backbone.mapstick.js",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mike1104/mapstick.git"
+    "url": "https://github.com/spanner/mapstick.git"
   }
 }
