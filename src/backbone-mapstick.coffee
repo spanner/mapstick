@@ -211,13 +211,14 @@ class MapStick.Overlay extends Backbone.View
   modelEvents: {}
   triggerMethod: MapStick.triggerMethod
   showing: false
+  cidPrefid: "o"
 
   # build a google.maps overlay with the initial options
   buildOverlay: (options) =>
     new google.maps[@googleOverlayType()](options)
 
   constructor: (options={}) ->
-    @cid = _.uniqueId('overlay')
+    @cid = _.uniqueId @cidPrefix
     @options = _.extend({}, _.result(@, 'options'), if _.isFunction(options) then options.call(@) else options)
     @overlayOptions = _.pick options, @properties
     _.defaults @overlayOptions, @defaultOptions
@@ -689,22 +690,24 @@ class MapStick.OverlayCollection extends Backbone.View
   viewOptions: ['collection', 'model', 'map']
   showing: false
   collectionEvents: {}
+  cidPrefix: 'oc'
 
   constructor: (options) ->
+    @cid = _.uniqueId @cidPrefix
     @options = _.extend({}, _.result(@, 'options'), if _.isFunction(options) then options.call(@) else options)
     _.extend @, _.pick(options, @viewOptions)
 
     @_initChildViewStorage()
-    @_initialCollection()
+    # @_initialCollection()
     @_initialEvents()
     @listenToCollection()
     @initialize(@options) if _.isFunction(@initialize)
 
-  # Create a view for each model in the collection
-  _initialCollection: =>
-    @collection.each (item, index) =>
-      if ItemView = @getItemView(item)
-        @addItemView(item, ItemView, index)
+  # # Create a view for each model in the collection
+  # _initialCollection: =>
+  #   @collection.each (item, index) =>
+  #     if ItemView = @getItemView(item)
+  #       @addItemView(item, ItemView, index)
 
   # Configured the initial events that the collection view
   # binds to.
