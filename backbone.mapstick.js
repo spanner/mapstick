@@ -1,4 +1,4 @@
-/*! MapStick (backbone.mapstick) - v0.2.2 - 2016-02-09
+/*! MapStick (backbone.mapstick) - v0.2.2 - 2016-04-22
 * Copyright (c) 2016 William Ross; Distributed under MIT license */
 
 (function() {
@@ -267,6 +267,7 @@
       this.handleKey = bind(this.handleKey, this);
       this.draw = bind(this.draw, this);
       this.render = bind(this.render, this);
+      this.clearModelListeners = bind(this.clearModelListeners, this);
       this.clearListeners = bind(this.clearListeners, this);
       this.remove = bind(this.remove, this);
       this.hide = bind(this.hide, this);
@@ -564,12 +565,27 @@
 
     Overlay.prototype.remove = function() {
       this.clearListeners();
+      this.clearModelListeners();
       return this.set("map", null);
     };
 
     Overlay.prototype.clearListeners = function() {
       if (this.overlay) {
         return google.maps.event.clearListeners(this.overlay);
+      }
+    };
+
+    Overlay.prototype.clearModelListeners = function() {
+      console.log("clearModelListeners!");
+      if (this.model) {
+        return _.each(this.modelEvents, (function(_this) {
+          return function(function_name, event_name) {
+            var method;
+            if (_.isFunction(method = _this[function_name])) {
+              return _this.model.off(event_name, method);
+            }
+          };
+        })(this));
       }
     };
 

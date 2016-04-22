@@ -407,11 +407,20 @@ class MapStick.Overlay extends Backbone.View
 
   remove: =>
     @clearListeners()
+    @clearModelListeners()
     @set "map", null
 
   # stop listening for events on the google.maps.overlay
   clearListeners: =>
     google.maps.event.clearListeners(@overlay) if @overlay
+
+  # stop listening for events on the backbone model
+  clearModelListeners: =>
+    console.log "clearModelListeners!"
+    if @model
+      _.each @modelEvents, (function_name, event_name) =>
+        if _.isFunction(method = @[function_name])
+          @model.off event_name, method
 
   render: =>
     if @showing
