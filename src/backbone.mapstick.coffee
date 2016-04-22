@@ -565,13 +565,12 @@ class MapStick.Polygon extends MapStick.OverlayWithPath
 
   drawExclusion: =>
     if google.maps.drawing
-      unless MapStick.drawingManager and MapStick.drawingManager.getMap()
+      unless MapStick.drawingManager and MapStick.drawingManager.getMap() is @map
         MapStick.drawingManager = new google.maps.drawing.DrawingManager
           map: @map
           drawingControl: false
 
       MapStick.drawingManager.setDrawingMode "polygon"
-
       google.maps.event.clearInstanceListeners MapStick.drawingManager
       google.maps.event.addListener MapStick.drawingManager, "polygoncomplete", (polygon) =>
         @finishExclusion polygon

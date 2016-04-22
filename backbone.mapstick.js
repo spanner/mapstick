@@ -809,7 +809,7 @@
 
     Polygon.prototype.drawExclusion = function() {
       if (google.maps.drawing) {
-        if (!(MapStick.drawingManager && MapStick.drawingManager.getMap())) {
+        if (!(MapStick.drawingManager && MapStick.drawingManager.getMap() === this.map)) {
           MapStick.drawingManager = new google.maps.drawing.DrawingManager({
             map: this.map,
             drawingControl: false
