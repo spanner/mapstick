@@ -1,4 +1,4 @@
-/*! MapStick (backbone.mapstick) - v0.2.2 - 2016-04-22
+/*! MapStick (backbone.mapstick) - v0.2.3 - 2016-04-22
 * Copyright (c) 2016 William Ross; Distributed under MIT license */
 
 (function() {
