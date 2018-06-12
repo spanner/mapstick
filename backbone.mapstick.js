@@ -1,5 +1,5 @@
-/*! MapStick (backbone.mapstick) - v0.2.3 - 2016-04-22
-* Copyright (c) 2016 William Ross; Distributed under MIT license */
+/*! MapStick (backbone.mapstick) - v0.2.4 - 2018-06-12
+* Copyright (c) 2018 William Ross; Distributed under MIT license */
 
 (function() {
   var MapStick,
@@ -576,7 +576,6 @@
     };
 
     Overlay.prototype.clearModelListeners = function() {
-      console.log("clearModelListeners!");
       if (this.model) {
         return _.each(this.modelEvents, (function(_this) {
           return function(function_name, event_name) {

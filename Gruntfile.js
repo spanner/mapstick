@@ -11,11 +11,6 @@ module.exports = function(grunt) {
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Distributed under <%= pkg.license %> license */\n\n',
     // Task configuration.
-    bower: {
-      install: {
-         //just run 'grunt bower:install' and you'll see files from your Bower packages in lib directory
-      }
-    },
     coffee: {
       options: {
         banner: '<%= banner %>'
@@ -85,8 +80,6 @@ module.exports = function(grunt) {
     }
   });
 
-  // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -94,7 +87,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  // Default task.
-  grunt.registerTask('default', ['bower', 'coffee', 'concat', 'uglify']);
+  grunt.registerTask('default', ['coffee', 'concat', 'uglify']);
 
 };

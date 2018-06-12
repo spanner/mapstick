@@ -416,7 +416,6 @@ class MapStick.Overlay extends Backbone.View
 
   # stop listening for events on the backbone model
   clearModelListeners: =>
-    console.log "clearModelListeners!"
     if @model
       _.each @modelEvents, (function_name, event_name) =>
         if _.isFunction(method = @[function_name])

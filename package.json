@@ -1,6 +1,6 @@
 {
   "name": "backbone.mapstick",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "title": "MapStick",
   "company": "Spanner Ltd",
   "author": {
@@ -11,12 +11,11 @@
   "contributors": [
     {
       "name": "Mike McIver",
-      "email": "1104mike@gmail.com"
+      "email": "mike@spanner.org"
     }
   ],
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-bower-task": "^0.4.0",
     "grunt-contrib-coffee": "^0.13.0",
     "grunt-contrib-concat": "~0.4.0",
     "grunt-contrib-jshint": "~0.10.0",
